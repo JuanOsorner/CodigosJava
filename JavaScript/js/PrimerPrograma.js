@@ -1,16 +1,16 @@
 //Llenar un vector con una palabra
-let palabra = prompt("Ingrese una palabra: ")
-let numero = prompt("Ingrese un numero entero positivo") //Así pedimos aqui al usuario que ingrese datos
-aleatorio(numero);
-function LlenarVector(V){
+let palabra = prompt("Ingrese una palabra: ");
+let numero = Number(prompt("Ingrese un numero entero positivo")); //Así pedimos aqui al usuario que ingrese datos
+LlenarVector(palabra,numero);
+function LlenarVector(P,x){
     let V = [];
     for(let i = 0; i < palabra.length; i++){ //Saber el tamaño de la palabra
-        V.push(palabra[i]);
+        V.push(P[i]);
     }
-    return console.log(V);
-}
-//Pensemos inicialmente en un numero del 0 a N (Natural que este entre ellos y lo imprima de manera aleatoria)
-function aleatorio(x){
-    return (Number.isInteger(numero) && numero >0) ? x + palabra.length % x : console.log("No se ingresaron enteros") ;
-} //Numero aleatorio entre 0 y x
-
+    if(Number.isInteger(x)&&x>=0){
+        let y = Number((x+palabra.length)%x);
+    } else {
+        let y = "No se han ingresado enteros positivos";
+    }
+    return console.log("El vector es: "+V+"\nEl numero aleatorio es: "+x+"\nLa letra aleatoria es: "+P[x-1])
+} //P[posicion del arreglo recuerde que va de 0 a N]
